@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns="http://tizen.org/ns/packages"
+          package="org.example.timefixer"
+          version="1.0.0"
+          api-version="6.0">
+    <profile name="tv"/>
+
+    <!-- Definición como Component‑Based Application -->
+    <component-based-application
+        appid="org.example.timefixer"
+        exec="timefixer"
+        type="capp">
+        <label>TimeFixer Service</label>
+        <icon>timefixer.png</icon>
+
+        <!-- Único componente: servicio en background -->
+        <service-component
+            id="org.example.timefixer.service"
+            main="true">
+            <label>TimeFixer Background Service</label>
+            <icon>timefixer.png</icon>
+        </service-component>
+    </component-based-application>
+
+    <privileges>
+        <!-- Nivel plataforma: permiso para ajustar hora -->
+        <privilege>http://tizen.org/privilege/systemsettings</privilege>
+        <privilege>http://tizen.org/privilege/application.admin</privilege>
+        <!-- Para HTTP y JSON -->
+        <privilege>http://tizen.org/privilege/internet</privilege>
+        <privilege>http://tizen.org/privilege/network.get</privilege>
+        <privilege>http://tizen.org/privilege/filesystem.read</privilege>
+        <privilege>http://tizen.org/privilege/filesystem.write</privilege>
+    </privileges>
+
+    <feature name="http://tizen.org/feature/screen.size.all">true</feature>
+</manifest>
